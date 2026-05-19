@@ -1,23 +1,16 @@
-name: Example Test
+name: Playwright test
 on: 
   workflow_dispatch: 
 jobs:
-  setup:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: environment setup
-        run: echo "setting up environment"
-  selenium-test:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "running selenium tests....."
-  playwright-test:
-    runs-on: windows-latest
-    steps:
-      - run: echo "running playwright tests....."
-  reports:
-    needs: playwright-test
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Generating reports....."
+      - uses: actions/checkout@v3
+      - name: Install node
+        run: sudo apt update && sudo apt install -y nodejs npm
+      - name: Install playwright
+        run: npm install @playwright/test
+      - name: Install browsers
+        run: npx playwright install
+      - name: Run test
+        run: npx playwright test
