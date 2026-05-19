@@ -11,4 +11,4 @@ jobs:
       - name: read file
         run: |
           cat sample.txt
-          cat demo.txt
+          cat text.txt
