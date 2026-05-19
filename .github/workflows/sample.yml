@@ -10,3 +10,5 @@ jobs:
       - run: echo $URL
       - name: open url
         run: curl $URL
+      - name: add secret
+        run: echo ${{secrets.My_url}}
