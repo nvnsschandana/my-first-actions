@@ -1,6 +1,7 @@
 name: Playwright test
 on: 
-  workflow_dispatch: 
+  push: 
+  pull_request: 
 jobs:
   test:
     runs-on: ubuntu-latest
