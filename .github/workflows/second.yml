@@ -1,0 +1,10 @@
+name: My second workflow
+on: push
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step1
+        run: echo "Step1 running"
+      - name: step2
+        run: echo "Step2 running"
