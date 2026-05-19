@@ -1,23 +1,12 @@
-name: Practice workflow
+name: Read file demo
 on: 
   push:
   workflow_dispatch: 
 jobs:
-  build:
+  read-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Step1
-        run: echo "build step"
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step2
-        run: echo "test step"
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step3
-        run: echo "deploy step"
-  
+      - name: get codE
+        uses: actions/checkout@v3
+      - name: read file
+        run: cat sample.txt
