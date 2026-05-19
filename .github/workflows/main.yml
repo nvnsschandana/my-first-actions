@@ -1,8 +1,24 @@
-name: My first workflow
-on: push
+name: Example Test
+on: 
+  workflow_dispatch: 
 jobs:
-  hello:
+  setup:
     runs-on: ubuntu-latest
     steps:
-      - name: print message
-        run: echo "Run again!"
+      - name: environment setup
+        run: echo "setting up environment"
+  selenium-test:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "running selenium tests....."
+  playwright-test:
+    needs: selenium-test
+    runs-on: windows-latest
+    steps:
+      - run: echo "running playwright tests....."
+  reports:
+    needs: playwright-test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Generating reports....."
