@@ -16,3 +16,6 @@ jobs:
         run: mvn compile
       - name: Run test
         run: mvn clean test -DsuiteXmlFile=testng.xml
+      - name: run only if success
+        if: success()
+        run: echo "all tests passed"
