@@ -15,4 +15,4 @@ jobs:
       - name: Install dependencies
         run: mvn compile
       - name: Run test
-        run: mvn test
+        run: mvn -Dtest=Test test
