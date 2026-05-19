@@ -1,0 +1,12 @@
+name: My workflow
+env:
+  URL: "https://www.google.com"
+on: 
+  push:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $URL
+      - name: open url
+        run: curl $URL
