@@ -15,4 +15,4 @@ jobs:
       - name: Install dependencies
         run: mvn compile
       - name: Run test
-        run: mvn -DsuiteXmlFile=testng.xml
+        run: mvn clean test -DsuiteXmlFile=testng.xml
