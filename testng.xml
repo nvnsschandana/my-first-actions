@@ -1,0 +1,8 @@
+<suite name="Suite" parallel="methods" thread-count="2">
+<test name="Test">
+  <classes>
+    <class name="TestExample.java"/>
+    <class name="Test.java"/>
+  </classes>
+</test>
+</suite>
