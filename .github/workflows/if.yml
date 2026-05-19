@@ -12,4 +12,5 @@ jobs:
            echo "Test passed"
          else
            echo "Test failed"
+         fi
      
