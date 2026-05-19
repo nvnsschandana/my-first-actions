@@ -1,10 +1,23 @@
-name: My second workflow
-on: push
+name: Practice workflow
+on: 
+  push:
+  workflow_dispatch: 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Step1
-        run: echo "Step1 running"
-      - name: step2
-        run: echo "Step2 running"
+        run: echo "build step"
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step2
+        run: echo "test step"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step3
+        run: echo "deploy step"
+  
