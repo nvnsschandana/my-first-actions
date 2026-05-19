@@ -13,7 +13,6 @@ jobs:
     steps:
       - run: echo "running selenium tests....."
   playwright-test:
-    needs: selenium-test
     runs-on: windows-latest
     steps:
       - run: echo "running playwright tests....."
