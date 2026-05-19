@@ -1,4 +1,4 @@
-name: Read file demo
+name: Read files demo
 on: 
   push:
   workflow_dispatch: 
@@ -9,4 +9,6 @@ jobs:
       - name: get codE
         uses: actions/checkout@v3
       - name: read file
-        run: cat sample.txt
+        run: |
+          cat sample.txt
+          cat demo.txt
