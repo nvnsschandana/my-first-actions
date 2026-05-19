@@ -1,0 +1,13 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>demo</groupId>
+  <artifactId>playwright-java</artifactId>
+  <version>1.0</version>
+  <dependencies>
+    <dependency>
+       <groupId>com.microsoft.playwright</groupId>
+       <artifactId>playwright</artifactId>
+      <version>1.43.0</version>
+    </dependency>
+  </dependencies>
+</project>
