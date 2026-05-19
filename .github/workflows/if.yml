@@ -4,13 +4,15 @@ jobs:
   run-test:
    runs-on: ubuntu-latest
    steps:
-     - uses: actions/checkout@v3
+     - uses: actions/checkout@v3  
      - name: run test
        run: |
-         result=$(cat text.txt)
-         if [["$result"==*"passed"]]; then
-           echo "Test passed"
-         else
-           echo "Test failed"
-         fi
-     
+         for file in sample.txt text.txt
+         do
+           content=$(cat $file)
+           if [["$content"==*"passed"]]; then
+             echo "Test passed"
+           else
+             echo "Test failed"
+           fi
+         done
