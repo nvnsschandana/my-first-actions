@@ -2,6 +2,6 @@
   "name":"playwright-demo"
   "version":"1.0.0"
   "scripts":{
-    "test":"playwright test"
+  "test":"playwright test"
   }
 }
