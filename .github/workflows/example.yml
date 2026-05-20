@@ -28,11 +28,11 @@ jobs:
         if: success()
         run: echo "test passed"
       - name: call url
-        run: curl $URL
+        run: echo "$URL"
   matrix-test:
     runs-on: ubuntu-latest
     strategy:
-     matrix:
+      matrix:
          java: [11,17]
     steps:
       - uses: actions/checkout@v3
