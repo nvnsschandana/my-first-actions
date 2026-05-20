@@ -37,7 +37,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: show java version
-        run: echo "running on ${{matrix.java}}
+        run: echo "running on ${{matrix.java}}"
   parallel-jobs:
     runs-on: ubuntu-latest
     steps:
