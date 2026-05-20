@@ -1,0 +1,44 @@
+name: CI pipeline
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+env:
+  APP_NAME: MyApp
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+      - name: print app name
+        run: echo "building $APP_NAME"
+      - name: build project
+        run: mvn compile
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      URL: ${{secrets.MY_URL}}
+    steps:
+      - uses: actions/checkout@v3
+      - name: run tests
+        run: mvn test
+      - name: on failure
+        if: success()
+        run: echo "test passed"
+      - name: call url
+        run: curl $URL
+  matrix-test:
+    runs-on: ubuntu-latest
+    strategy:
+     matrix:
+         java: [11,17]
+    steps:
+      - uses: actions/checkout@v3
+      - name: show java version
+        run: echo "running on ${{matrix.java}}
+  parallel-jobs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "this runs parallel with others"
